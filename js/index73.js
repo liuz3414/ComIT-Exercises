@@ -38,13 +38,13 @@ function get_line_content(length){
 // Find N largest number less than MAX_SAFE_INTEGER
 function find_N_Largest_Odd_Num(N){
     for(var i = 1; i <= max; i++){
-        // Find N largest
-        if(N == 1){
-            return i;
-        }
         // If i is an odd number
-        if(i % 2 == 0){
+        if(i % 2 != 0){
             N--;
+        }
+        // Find N largest
+        if(N == 0){
+            return i;
         }
     }
 }
