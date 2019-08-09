@@ -10,13 +10,13 @@
 // Show the following output: Users count: %userCount%, %menCount% % & %womenCount% %
 // Use as many assignment operators as you can
 
-var userCount  = 100;
+let userCount  = 100;
 userCount+=5;
 console.log("User count: " + (userCount) );
 userCount-=3;
 console.log("User count: " + (userCount));
 userCount*=2;
 console.log("User count: " + (userCount));
-var menCount = userCount/2;
-var womenCount = userCount/2;
-console.log("Users count: " + (userCount)+", "+(menCount) +"% & "+(womenCount)+" %");
+let menCount = userCount/2;
+let womenCount = userCount/2;
+console.log(`Users count: ${userCount}, ${menCount}% & ${womenCount}%`);

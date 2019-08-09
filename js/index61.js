@@ -10,32 +10,35 @@
 //     Error: Please input a number bettwen 1 and 7
 
 let weekdayNumber = 6;
+
 // -----Switch Version----------//
+let message = null;
 switch(weekdayNumber) {
     case 1:
-        console.log("Today it's Monday");
+        message = "Today it's Monday";
         break;
     case 2:
-        console.log("Today it's Tuesday");
+        message = "Today it's Tuesday";
         break;
     case 3:
-        console.log("Today it's Wednesday");
+        message = "Today it's Wednesday";
         break;
     case 4:
-        console.log("Today it's Thurdays");
+        message = "Today it's Thurdays";
         break;
     case 5:
-        console.log("Today it's Friday");
+        message = "Today it's Friday";
         break;
     case 6:
-        console.log("Today it's Saturday");
+        message = "Today it's Saturday";
         break;
     case 7:
-        console.log("Today it's Sunday");
+        message = "Today it's Sunday";
         break;
     default:
-        console.log("Error: Please input a number bettwen 1 and 7");
+        message = "Error: Please input a number bettwen 1 and 7";
 }
+console.log(message);
 
 //--------If/else Version-----------//
 if(weekdayNumber == 1){
