@@ -20,8 +20,8 @@
 // Try all the posible cases/scenarios (even the error message) by changing the weekdayNumber value
 
 let monthNumber = 11;
-let monthName = null;
-let monthDays = null;
+let monthName;
+let monthDays;
 
 switch(monthNumber) {
     case 1:
@@ -72,10 +72,13 @@ switch(monthNumber) {
         monthName = "December";
         monthDays = 31;
         break;
+    default:
+        monthName = null;
+        monthDays = null;
 }
 
 if(monthName == null || monthDays == null){
-    console.log("Error message");
+    alert("Error message");
 } else {
     console.log(monthName + " is the selected month and has " + monthDays);
 }
