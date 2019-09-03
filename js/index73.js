@@ -3,6 +3,14 @@ let line_content = "";
 let curr_row = ROW_NUM;
 let currColumn = ROW_NUM;
 
+// let line = "*******";
+// lineMax = line.length;
+// while(lineMax > 0){
+//     let newLine = line.substr(0, lineMax);
+//     console.log(newLine);
+//     lineMax--;
+// }
+
 console.log("Row number: " + ROW_NUM);
 while(curr_row >= 1){
     currColumn = curr_row;
