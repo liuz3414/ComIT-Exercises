@@ -1,4 +1,4 @@
-let s1 = 'hello';
-let s2 = "hello";
+let s1 = parseInt(true);
+let s2 = parseInt(false);
 
-(s1 === s2) ? console.log("s1 = s2") : console.log("s1 != s2");
+console.log("s1: " + s1 + ", s2: " + s2);
