@@ -1,7 +1,7 @@
 const element1 = document.getElementById('important');
 const element2 = document.querySelectorAll('a');
 const element3 = document.querySelector('ul');
-const element4 = document.getElementsByClassName('blue');
+const element4 = document.getElementsByClassName('.blue');
 
 console.log(element1);
 console.log(element2);
