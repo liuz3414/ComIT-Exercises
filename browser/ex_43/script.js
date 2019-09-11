@@ -1,5 +1,7 @@
 let form = document.querySelector('form');
-let element1 = form.elements[0];
-let element2 = form.elements[1];
-let element3 = form.elements[2];
-let element4 = form.elements[3];
+let action = form.action;
+let method = form.method;
+let enctype = form.enctype;
+let name = form.name;
+
+document.querySelector('div').innerText += `${action}\n${method}\n${enctype}\n${name}`;

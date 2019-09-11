@@ -15,7 +15,7 @@ link.onmouseover = function(){
         color = 'white';
     }
     console.log(color);
-    link.style.color = color;
+    link.style.backgroundColor = color;
     counter++;
 };
 

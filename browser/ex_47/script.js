@@ -1,24 +1,15 @@
-let link = document.querySelector('a');
-let counter = 1;
-let color = null;
+let form = document.querySelector('form');
+let checkBox = document.querySelector('input');
+let selectedElement = null;
 
-link.onmouseover = function(){
-    if(counter == 1){
-        color = 'red';
-    }else if(counter == 2){
-        color = 'blue';
-    }else if(counter == 3){
-        color = 'green';
-    }else if(counter == 4){
-        color = 'gray';
-    }else if(counter > 4){
-        color = 'white';
+form.onsubmit = function(event){
+    selectedElement = document.querySelector('input:checked');
+    event.preventDefault();
+    if(selectedElement == null){
+        window.alert('Please at least select a superheroe');
+    }else{
+        // for(let i = 0; i < checkBox.length; i++){
+            
+        // }
     }
-    console.log(color);
-    link.style.color = color;
-    counter++;
 };
-
-link.onmouseout = function(){
-    console.log(`The link background color is: ${color}`);
-}

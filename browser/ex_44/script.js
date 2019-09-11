@@ -1,24 +1,11 @@
-let link = document.querySelector('a');
-let counter = 1;
-let color = null;
+let form = document.querySelector('form');
+let username = form.elements[0];
+let password = form.elements[1];
+let button = form.elements[2];
 
-link.onmouseover = function(){
-    if(counter == 1){
-        color = 'red';
-    }else if(counter == 2){
-        color = 'blue';
-    }else if(counter == 3){
-        color = 'green';
-    }else if(counter == 4){
-        color = 'gray';
-    }else if(counter > 4){
-        color = 'white';
-    }
-    console.log(color);
-    link.style.color = color;
-    counter++;
+username.value = 'morty';
+password.value = '12345';
+
+button.onclick = function(){
+    window.alert(`username:${username.value}, passord:${password.value}`);
 };
-
-link.onmouseout = function(){
-    console.log(`The link background color is: ${color}`);
-}
