@@ -14,7 +14,8 @@ class App extends Component {
         {name: 'Jay', age: 29, id: 1},
         {name: 'James', age: 26, id: 2}
       ],
-      otherState: 'other values'
+      otherState: 'other values',
+      showPersons: false
     };
   }
 
@@ -31,41 +32,60 @@ class App extends Component {
     };
   }
 
-  changeName = (event) => {
-    this.setState({
-      persons: [
-        {name: event.target.value, age: 27},
-        {name: event.target.value, age: 26},
-        {name: event.target.value, age: 6}
-      ]
+  deletePerson = (personIndex) => {
+    // console.log(personIndex);
+    // const persons = this.state.persons;
+    // persons.splice(personIndex, 1);
+    // this.setState({persons: persons});
+  }
 
-    })
+  changeName = (personIndex) => {
+    return (event) => {
+      this.setState({
+        persons: [
+          {name: event.target.value, age: 27},
+          {name: event.target.value, age: 26},
+          {name: event.target.value, age: 6}
+        ]
+      })
+    };    
+  }
+
+  togglePersons = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons: !doesShow});
   }
 
   render() {
-    const {persons} = this.state;
-    // Maybe need indexes?
-    const items = persons.map(person => 
-      <Person name={person.name} age={person.age} change={this.changeName}/>);
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
+    let persons = null;
+    if(this.state.showPersons){
+      persons = (
+        <div>
+          {this.state.persons.map((person, index) => {
+            return <Person 
+              name={person.name} 
+              age={person.age} 
+              // click={this.deletePerson(index)}
+              change={this.changeName(index)}/>;
+          })}
+        </div>
+      )
+      
+    }
 
 
     return (
       <div className="App">
-        <button onClick={this.switchName('New name')}>Switch Game</button>
-        {items}
-          
-        {/* <Person 
-            name={persons[0].name}
-            age={persons[0].age}
-          />
-        <Person 
-            name={persons[1].name}
-            age={persons[1].age}
-        />
-        <Person 
-            name={persons[2].name}
-            age={persons[2].age}
-        /> */}
+        <button style={style} onClick={()=>this.togglePersons()}>Show Persons</button>
+        {persons}
       </div>
     );
   };
