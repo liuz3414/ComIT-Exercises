@@ -10,9 +10,9 @@ class App extends Component {
 
     this.state = {
       persons: [
-        {name: 'Jason', age: 28, id: 0},
-        {name: 'Jay', age: 29, id: 1},
-        {name: 'James', age: 26, id: 2}
+        {id: '0', name: 'Jason', age: 28, id: 0},
+        {id: '1', name: 'Jay', age: 29, id: 1},
+        {id: '2', name: 'James', age: 26, id: 2}
       ],
       otherState: 'other values',
       showPersons: false
@@ -33,22 +33,23 @@ class App extends Component {
   }
 
   deletePerson = (personIndex) => {
-    // console.log(personIndex);
-    // const persons = this.state.persons;
-    // persons.splice(personIndex, 1);
-    // this.setState({persons: persons});
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({persons: persons});
   }
 
-  changeName = (personIndex) => {
-    return (event) => {
-      this.setState({
-        persons: [
-          {name: event.target.value, age: 27},
-          {name: event.target.value, age: 26},
-          {name: event.target.value, age: 6}
-        ]
-      })
-    };    
+  changeName = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+    const person = {...this.state.persons[personIndex]};
+    // const person = Object.assign({}, this.state.persons[personIndex]);
+
+    person.name = event.target.value;
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
+    this.setState({persons: persons})    
   }
 
   togglePersons = () => {
@@ -73,8 +74,10 @@ class App extends Component {
             return <Person 
               name={person.name} 
               age={person.age} 
-              // click={this.deletePerson(index)}
-              change={this.changeName(index)}/>;
+              // onClick={this.deletePerson(index)}
+              changed={(event) => this.changeName(event, person.id)}
+              key={person.id}
+              />;
           })}
         </div>
       )
