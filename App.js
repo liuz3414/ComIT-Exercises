@@ -10,9 +10,9 @@ class App extends Component {
 
     this.state = {
       persons: [
-        {id: '0', name: 'Jason', age: 28, id: 0},
-        {id: '1', name: 'Jay', age: 29, id: 1},
-        {id: '2', name: 'James', age: 26, id: 2}
+        {id: 0, name: 'Jason', age: 28},
+        {id: 1, name: 'Jay', age: 29},
+        {id: 2, name: 'James', age: 26}
       ],
       otherState: 'other values',
       showPersons: false
@@ -39,13 +39,10 @@ class App extends Component {
   }
 
   changeName = (event, id) => {
-    const personIndex = this.state.persons.findIndex(p => {
-      return p.id === id;
-    });
+    const personIndex = this.state.persons.findIndex(p => { return p.id === id; });
     const person = {...this.state.persons[personIndex]};
-    // const person = Object.assign({}, this.state.persons[personIndex]);
-
     person.name = event.target.value;
+    
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
@@ -70,11 +67,12 @@ class App extends Component {
     if(this.state.showPersons){
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
+          {/* {this.state.persons.map((person, index) => { */}
+          {this.state.persons.map((person) => {
             return <Person 
               name={person.name} 
               age={person.age} 
-              // onClick={this.deletePerson(index)}
+              // clicked={this.deletePerson(person.id)}
               changed={(event) => this.changeName(event, person.id)}
               key={person.id}
               />;
